@@ -16,7 +16,7 @@ steps:
 - task: NuGetToolInstaller@1
   displayName: 'Ensure latest NuGet'
   inputs:
-    versionSpec: '5.8+'
+    versionSpec: '6.x'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore dependencies'
