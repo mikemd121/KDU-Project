@@ -28,18 +28,21 @@ steps:
   displayName: 'Build application'
   inputs:
     command: 'build'
+    projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Run tests (if applicable)'
   inputs:
     command: 'test'
+    projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish application'
   inputs:
     command: 'publish'
+    projects: '**/*.csproj'
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
